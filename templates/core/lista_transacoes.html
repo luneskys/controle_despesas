@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Minhas Transações</h2>
+
+<a href="{% url 'criar_transacao' %}">+ Nova Transação</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Data</th>
+        <th>Categoria</th>
+        <th>Valor</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+    </tr>
+    {% for t in transacoes %}
+    <tr>
+        <td>{{ t.data }}</td>
+        <td>{{ t.categoria.nome }}</td>
+        <td>R$ {{ t.valor }}</td>
+        <td>{{ t.descricao }}</td>
+        <td>
+            <a href="{% url 'editar_transacao' t.id %}">Editar</a> |
+            <a href="{% url 'excluir_transacao' t.id %}">Excluir</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">Nenhuma transação encontrada.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

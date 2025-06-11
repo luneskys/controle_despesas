@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Confirmar Exclusão</h2>
+<p>Tem certeza que deseja excluir esta transação?</p>
+<ul>
+    <li><strong>Data:</strong> {{ transacao.data }}</li>
+    <li><strong>Categoria:</strong> {{ transacao.categoria.nome }}</li>
+    <li><strong>Valor:</strong> R$ {{ transacao.valor }}</li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar Exclusão</button>
+    <a href="{% url 'listar_transacoes' %}">Cancelar</a>
+</form>
+{% endblock %}
