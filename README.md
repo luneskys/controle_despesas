@@ -30,7 +30,7 @@ Um sistema web de controle financeiro pessoal desenvolvido com **Django**, com f
 
 ```bash
 # Clone o projeto
-git clone https://github.com/seu-usuario/controle-despesas.git
+git clone https://github.com/luneskys/controle-despesas.git
 cd controle-despesas
 
 # Crie e ative um ambiente virtual
